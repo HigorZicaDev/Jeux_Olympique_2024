@@ -25,7 +25,7 @@ onMounted(async () => {
       if(x.rank_total_medals !== 0){
         return x.rank_total_medals - y.rank_total_medals
       }
-      
+
     }))
     console.log(state.countries);
   } catch (error) {
@@ -39,14 +39,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="py-4">
+  <div class="p-4">
     <div class="container-xl lg:container m-auto">
         <div v-if="state.isLoading" class="text-center text-gray-500 py-6">
             <PulseLoader />
         </div>
         <div v-else class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div v-for="country in state.countries" :key="country.id" class="max-w-sm rounded overflow-hidden shadow-lg">
-            <img class="w-full" v-bind:src="country.flag_url" alt="Sunset in the mountains" width="200" height="200">
+            <img class="w-full object-cover object-center" v-bind:src="country.flag_url" alt="Sunset in the mountains">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">{{ country.name }}</div>
     
